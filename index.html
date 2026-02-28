@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intramurals - Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Gill Sans;
+            background-color: #0a192f;
+            color: #ffffff;
+            text-shadow: 1px 1px 3px #000000;
+        }
+
+        header {
+            background-color: #112240;
+            padding: 15px;
+            text-align: right;
+        }
+
+        header a {
+            color: #ffd60a;
+            margin-left: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 85vh; /* prevents overflow issue */
+        }
+
+        .card {
+            background-color: #112240;
+            padding: 40px; /* reduced from 85px */
+            border-radius: 15px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        .card img {
+            width: 60px;   /* controls image size */
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-family: Gill Sans;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ffd60a;
+            color: #0a192f;
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Gill Sans;
+        }
+
+        button:hover {
+            background-color: #ffc300;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html">Sign Up</a>
+    <a href="team.html">Team Checker</a>
+    <a href="players.html">Players</a>
+</header>
+
+<div class="container">
+    <div class="card">
+        <img src="https://cdn-icons-png.flaticon.com/512/861/861512.png">
+        <h2>Create Account</h2>
+        <input type="text" placeholder="Username">
+        <input type="password" placeholder="Password">
+        <button>Sign Up</button>
+    </div>
+</div>
+
+</body>
+</html>
