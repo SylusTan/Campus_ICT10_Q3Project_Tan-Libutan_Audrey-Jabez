@@ -2,10 +2,12 @@
 <html>
 <head>
     <title>Intramurals - Sign Up</title>
+    <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.8.1/core.js"></script>
     <style>
         body {
             margin: 0;
-            font-family: Gill Sans;
+            font-family: "Gill Sans", sans-serif;
             background-color: #0a192f;
             color: #ffffff;
             text-shadow: 1px 1px 3px #000000;
@@ -28,12 +30,12 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 85vh; /* prevents overflow issue */
+            min-height: 85vh; 
         }
 
         .card {
             background-color: #112240;
-            padding: 40px; /* reduced from 85px */
+            padding: 40px; 
             border-radius: 15px;
             width: 300px;
             text-align: center;
@@ -41,7 +43,7 @@
         }
 
         .card img {
-            width: 60px;   /* controls image size */
+            width: 60px;   
             height: auto;
             margin-bottom: 15px;
         }
@@ -64,13 +66,30 @@
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            font-family: Gill Sans;
+            font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
         }
 
         button:hover {
             background-color: #ffc300;
         }
+        input::placeholder {
+            color: #0a192f;
+            opacity: 1;
+            font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+        }
+        .error-msg {
+            color: #ff7373;
+            font-size: 0.9em;
+            margin-bottom: 0.5rem;
+            font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
 
+        }
+        .success-msg {
+            color: #90ee90;
+            font-weight: bold;
+            margin-top: 1rem;
+            font-family:'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif
+        }
     </style>
 </head>
 <body>
@@ -83,13 +102,16 @@
 
 <div class="container">
     <div class="card">
-        <img src="https://cdn-icons-png.flaticon.com/512/861/861512.png">
+        <img src="https://cdn-icons-png.flaticon.com/512/861/861512.png" alt="user icon">
         <h2>Create Account</h2>
-        <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button>Sign Up</button>
+        <input id="username" type="text" placeholder="Choose a username">
+        <div id="username-error" class="error-msg"></div>
+        <input id="password" type="password" placeholder="Create a password">
+        <div id="password-error" class="error-msg"></div>
+        <button py-click="account_creation" class="btn btn-signup">Sign Up</button>
+        <div id="output" class="success-msg"></div>
     </div>
 </div>
-
+<script type="py" src="main.py" ></script>
 </body>
 </html>
