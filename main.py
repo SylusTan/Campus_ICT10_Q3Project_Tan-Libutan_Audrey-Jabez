@@ -1,58 +1,55 @@
-from pyscript import document #type: ignore
+from pyscript import document  # type: ignore
 
-# utilities for password validation
 
 def contains_letter(s: str) -> bool:
-    """Return True if there is at least one alphabetic character."""
+    #Return True if ``s`` contains at least one alphabetic character.
     return any(c.isalpha() for c in s)
 
 
 def contains_number(s: str) -> bool:
-    """Return True if there is at least one digit."""
+    #Return True if ``s`` contains at least one digit.
     return any(c.isdigit() for c in s)
 
 
 def account_creation(e=None):
-    # read current values
+    #Validate username/password fields and update the DOM with feedback.
+
     username = document.getElementById("username").value or ""
     password = document.getElementById("password").value or ""
 
-    username_len = len(username)
-    password_len = len(password)
-
-    # reset any prior messages
+    # clear any previous messages
     document.getElementById("username-error").innerHTML = ""
     document.getElementById("password-error").innerHTML = ""
     document.getElementById("output").innerHTML = ""
 
-    # accumulate errors consistently for each field
-    user_errors = []
-    pass_errors = []
+    user_errors: list[str] = []
+    pass_errors: list[str] = []
 
-    # immediate click without typing anything
-    if username_len == 0:
+    # username rules
+    if not username:
         user_errors.append("Please enter a username.")
-    elif username_len < 7:
-        user_errors.append(f"Username must be at least 7 characters long. Add {7 - username_len} more.")
+    elif len(username) < 7:
+        user_errors.append(f"Username must be at least 7 characters long. Add {7 - len(username)} more.")
 
-    if password_len == 0:
+    # password rules
+    if not password:
         pass_errors.append("Please enter a password.")
     else:
-        if password_len < 10:
-            pass_errors.append(f"Password must be at least 10 characters long. Add {10 - password_len} more.")
+        if len(password) < 10:
+            pass_errors.append(f"Password must be at least 10 characters long. Add {10 - len(password)} more.")
         if not contains_letter(password):
-            pass_errors.append("Password must include a letter.")
+            pass_errors.append("Password must include at least one letter.")
         if not contains_number(password):
-            pass_errors.append("Password must include a number.")
+            pass_errors.append("Password must include at least one number.")
 
-    # display errors if any
+    # write errors back to page
     if user_errors:
         document.getElementById("username-error").innerHTML = "<br>".join(user_errors)
     if pass_errors:
         document.getElementById("password-error").innerHTML = "<br>".join(pass_errors)
 
-    # success message if all requirements satisfied
     if not user_errors and not pass_errors:
         document.getElementById("output").innerHTML = "Account created successfully!"
+
 
 
