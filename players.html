@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
+        <link rel="stylesheet" href="https://pyscript.net/releases/2024.8.1/core.css" />
+    <script type="module" src="https://pyscript.net/releases/2024.8.1/core.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <head>
     <title>Intramurals - Players</title>
     <style>
         body {
             margin: 0;
-            font-family: "Gill Sans", sans-serif;
+            font-family: "Gill Sans";
             background-color: #0a192f;
             color: #ffffff;
             text-shadow: 1px 1px 3px #000000;
@@ -13,27 +16,18 @@
 
         header {
             background-color: #112240;
-            padding: 15px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            padding: 15px;
+            text-align: right;
         }
 
-        .header-title {
-            color: #ffd60a;
-            font-weight: bold;
-            font-size: 20px;
-            letter-spacing: 1px;
-        }
-
-        .nav-links a {
+        header a {
             color: #ffd60a;
             margin-left: 20px;
             text-decoration: none;
             font-weight: bold;
         }
 
-        .nav-links a:hover {
+        header a:hover {
             color: #ffffff;
         }
 
@@ -51,12 +45,12 @@
             text-align: center;
             box-shadow: 0 0 15px rgba(0,0,0,0.5);
         }
+
         .card img {
-            width: 100px;
-            height: 100px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 10px auto;
+            width: 80px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1); 
         }
 
         ul {
@@ -67,12 +61,14 @@
         }
 
         li {
-            padding: 8px 0;
+            padding: 5px 0;
+            margin-bottom: 8px; 
             border-bottom: 1px solid #ffd60a;
         }
 
         li:last-child {
             border-bottom: none;
+            margin-bottom: 0;
         }
 
         ul::-webkit-scrollbar {
@@ -83,63 +79,38 @@
             background: #ffd60a;
             border-radius: 10px;
         }
-
+        h2{
+            color: #ffd60a;
+            text-shadow: 1px 1px 3px #000000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+         li{
+            color: #ffd60a;
+            text-shadow: 1px 1px 3px #000000;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
     </style>
 </head>
 <body>
 
 <header>
-    <div class="header-title">Intramurals '25 - '26</div>
-    
-    <div class="nav-links">
-        <a href="index.html">Sign Up</a>
-        <a href="team.html">Team Checker</a>
-        <a href="players.html">Players</a>
-    </div>
+    <a href="index.html">Sign Up</a>
+    <a href="team.html">Team Checker</a>
+    <a href="players.html">Players</a>
 </header>
 
 <div class="container">
     <div class="card">
-
-        <!-- Clean centered volleyball icon -->
-        <img src="https://png.pngtree.com/element_pic/16/12/19/5a6376f13bddc88763f50d89fc6699b3.png" alt="Volleyball Icon">
+        <img src="https://png.pngtree.com/png-vector/20230817/ourmid/pngtree-volleyball-vector-clip-art-png-image_9183126.png" alt="Volleyball Icon">
 
         <h2>Intramurals Players</h2>
 
-        <ul>
-            <li>1. Jairo Agudo</li>
-            <li>2. Naser Al Hazmi</li>
-            <li>3. Mikko Alaiza</li>
-            <li>4. Matthew Banaag</li>
-            <li>5. Emille Barcelona</li>
-            <li>6. Cyrene Brion</li>
-            <li>7. Miguel Buo</li>
-            <li>8. Lian Castro</li>
-            <li>9. Shia Cruz</li>
-            <li>10. Karla Del Prado</li>
-            <li>11. Gianna Entrada</li>
-            <li>12. Gavin Francisco</li>
-            <li>13. Adrian Gavina</li>
-            <li>14. Xylee Goyenechea</li>
-            <li>15. Sofia Guevarra</li>
-            <li>16. Ioana Haberia</li>
-            <li>17. Alexander Janayan</li>
-            <li>18. Jabez Libutan</li>
-            <li>19. Arabella Lubo</li>
-            <li>20. Luisa Manuel</li>
-            <li>21. Janine Mariposque</li>
-            <li>22. Rycob Pagtalunan</li>
-            <li>23. Lucas Reyes</li>
-            <li>24. Fateh Singh</li>
-            <li>25. Tyronne Subaan</li>
-            <li>26. Audrey Tam</li>
-            <li>27. Alexandra Vargas</li>
-            <li>28. James Zaldivar</li>
+
+        <ul id="players-list">
         </ul>
 
     </div>
 </div>
-
-<script type="py" src="main2.py"></script>
+<script type="py" src="main2.py" ></script>
 </body>
 </html>
